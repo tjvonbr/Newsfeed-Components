@@ -39,3 +39,19 @@ let articles = document.querySelectorAll('.article');
 newArticle = articles.forEach((element) => {
   return new Article(element);
 })
+
+// News Button
+const newsButton = document.querySelector('.news');
+
+newsButton.addEventListener('click', () => {
+  var url = 'https://newsapi.org/v2/top-headlines?' +
+          'country=us&' +
+          'apiKey=7bd79b5c650b4cfeb949429d2ece50d1';
+var req = new Request(url);
+fetch(req)
+    .then(function(response) {
+        console.log(response.json().then(data => {
+          console.log(data);
+        }));
+    })
+})
